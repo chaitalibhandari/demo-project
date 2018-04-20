@@ -1,0 +1,28 @@
+<h3>customer Details</h3>
+<hr>
+<a routerLink="/customers" class="btn btn-primary">
+  <span class="glyphicon glyphicon-chevron-left"></span>
+</a>
+<br>
+<br>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      {{ customer.name | uppercase }}
+    </h3>
+  </div>
+  <div class="panel-body">
+    <p><b>Email Id :</b> {{ customer.email }}</p>
+    <p><b>Name :</b>{{ customer.phone }}</p>
+    <p><b>City :</b>{{ customer.city }}</p>
+  </div>
+  
+  <div class="panel-footer">
+    <a [routerLink]="['/customers', customer.id, 'edit']" class="btn btn-primary btn-sm">
+      <span class="glyphicon glyphicon-edit"></span>
+    </a>
+    <a class="btn btn-warning btn-sm" (click)="onDelete()">
+      <span class="glyphicon glyphicon-trash"></span>
+    </a>
+  </div>
+</div>

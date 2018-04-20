@@ -1,0 +1,43 @@
+<h3>customer Form</h3>
+<hr>
+<div class="well well-lg">
+  <form #f="ngForm" (ngSubmit)="onSave()">
+    <div class="form-group">
+      <label for="customerName">Name</label>
+      <input type="text" class="form-control" id="customerName" name="name" [ngModel]="customer.name" required #name="ngModel">
+      <div class="alert alert-danger" *ngIf="name.invalid && name.touched">
+        Name is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="customeremail">email</label>
+      <input type="text" class="form-control" id="customeremail" cols="30" rows="4" name="email" [ngModel]="customer.email"
+        required #email="ngModel">
+    
+      <div class="alert alert-danger" *ngIf="email.invalid && email.touched">
+        email is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="customerphone">phone</label>
+      <input type="text" class="form-control" id="customerphone" name="phone" [ngModel]="customer.phone" required #phone="ngModel">
+      <div class="alert alert-danger" *ngIf="phone.invalid && phone.touched">
+        phone is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="customerphone">City</label>
+      <input type="text" class="form-control" id="customercity" name="city" [ngModel]="customer.city" required #city="ngModel">
+      <div class="alert alert-danger" *ngIf="city.invalid && city.touched">
+        city is required.
+      </div>
+    </div>
+    
+    <button name="save" type="submit" [disabled]="f.invalid" class="btn btn-primary">
+      <span class="glyphicon glyphicon-ok"></span>
+    </button>
+    <a class="btn btn-warning" routerLink="/customers">
+      <span class="glyphicon glyphicon-remove"></span>
+    </a>
+  </form>
+</div>
